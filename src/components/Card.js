@@ -9,7 +9,9 @@ const Card = ({
     manaCost,
     text,
     flavor,
-    imageUrl
+    imageUrl,
+    addCardToDeck,
+    removeCardFromDeck
   }) => {
     return (
       <div className="Card">
@@ -29,8 +31,23 @@ const Card = ({
         </div>
         <img className="preview" src={ imageUrl } />
         <div className="actions">
-          <button>(+) Add to Deck</button>
-          <button>(-) Remove from Deck</button>
+          <button
+            onClick={() => {
+              addCardToDeck({
+                id,
+                name
+              })
+            }}>
+              (+) Add to Deck
+            </button>
+          <button
+            onClick={() => {
+              removeCardFromDeck({
+                id
+              })
+            }}>
+              (-) Remove from Deck
+            </button>
         </div>
       </div>
     );
